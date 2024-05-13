@@ -22,4 +22,4 @@ const RestaurantsPage = async () => {
   );
 };
 
-export default Restaurants;
+export default RestaurantsPage;
