@@ -33,7 +33,7 @@
 <h2 id="layout">🎨 Layout</h2>
 
 <p align="center">
-    <img src="https://imgur.com/kbcivKb" alt="Image Example" width="400px">
+    <img src="https://i.imgur.com/iAuHFCc.png" alt="Image Example" width="400px">
 </p>
 
 <h2 id="started">🚀 Getting started</h2>
