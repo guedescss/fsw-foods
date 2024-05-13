@@ -1,10 +1,11 @@
+[NODEJS_BADGE]: https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white
 [TYPESCRIPT_BADGE]: https://img.shields.io/badge/typescript-D4FAFF?style=for-the-badge&logo=typescript
 [REACT_BADGE]: https://img.shields.io/badge/react-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=white
 [NEXTJS_BADGE]: https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white
 [POSTGRESQL_BADGE]: https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
 [TAILWINDCSS_BADGE]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
 [PRISMA_BADGE]: https://img.shields.io/badge/prisma-%231B222D.svg?style=for-the-badge&logo=prisma&logoColor=white
-[NODEJS_BADGE]: https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white
+
 
 
 
