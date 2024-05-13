@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 "use client";
 
 import { Prisma, Product } from "@prisma/client";
@@ -57,7 +56,6 @@ export const CartContext = createContext<ICartContext>({
   totalPrice: 0,
   totalDiscounts: 0,
   totalQuantity: 0,
-
   addProductToCart: () => {},
   decreaseProductQuantity: () => {},
   increaseProductQuantity: () => {},
@@ -135,7 +133,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const addProductToCart = (
+  const addProductToCart = ({
+    product,
+    quantity,
+    emptyCart,
+  }: {
     product: Prisma.ProductGetPayload<{
       include: {
         restaurant: {
@@ -146,13 +148,19 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
           };
         };
       };
-    }>,
-    quantity: number,
-  ) => {
+    }>;
+    quantity: number;
+    emptyCart?: boolean;
+  }) => {
+    if (emptyCart) {
+      setProducts([]);
+    }
+
     // VERIFICAR SE O PRODUTO JÁ ESTÁ NO CARRINHO
     const isProductAlreadyOnCart = products.some(
       (cartProduct) => cartProduct.id === product.id,
     );
+
     // SE ELE ESTIVER, AUMENTAR A SUA QUANTIDADE
     if (isProductAlreadyOnCart) {
       return setProducts((prev) =>
@@ -163,13 +171,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
               quantity: cartProduct.quantity + quantity,
             };
           }
+
           return cartProduct;
         }),
       );
     }
+
     // SE NÃO, ADICIONÁ-LO COM A QUANTIDADE RECEBIDA
     setProducts((prev) => [...prev, { ...product, quantity: quantity }]);
   };
+
   return (
     <CartContext.Provider
       value={{
@@ -177,9 +188,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         subtotalPrice,
         totalPrice,
         totalDiscounts,
-        addProductToCart,
         totalQuantity,
         clearCart,
+        addProductToCart,
         decreaseProductQuantity,
         increaseProductQuantity,
         removeProductFromCart,
