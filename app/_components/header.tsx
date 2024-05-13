@@ -29,10 +29,19 @@ const Header = () => {
   const handleSignInClick = () => signIn();
 
   return (
-    <div className="flex justify-between px-5 pt-6 ">
+    <div className="flex justify-between px-5 pt-6">
       <Link href="/">
-        <Image src="/logo.png" alt="FSW Foods" height={30} width={100} />
+        <div className="relative h-[30px] w-[100px]">
+          <Image
+            src="/logo.png"
+            alt="FSW Foods"
+            sizes="100%"
+            fill
+            className="object-cover"
+          />
+        </div>
       </Link>
+
       <Sheet>
         <SheetTrigger asChild>
           <Button
