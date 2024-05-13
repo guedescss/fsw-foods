@@ -34,7 +34,7 @@ const Header = () => {
         <Image src="/logo.png" alt="FSW Foods" height={30} width={100} />
       </Link>
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button
             size="icon"
             variant="outline"
