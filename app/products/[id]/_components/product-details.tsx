@@ -1,10 +1,9 @@
 "use client";
 
-import DeliveryInfo from "@/app/_components/delivery-info";
 import Cart from "@/app/_components/cart";
+import DeliveryInfo from "@/app/_components/delivery-info";
 import DiscountBadge from "@/app/_components/discount-badge";
 import ProductList from "@/app/_components/product-list";
-import { Button } from "@/app/_components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,22 +14,22 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/app/_components/ui/alert-dialog";
-import {
-  formatCurrency,
-  calculateProductTotalPrice,
-} from "@/app/_helpers/price";
-import { Prisma } from "@prisma/client";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-
-import { CartContext } from "@/app/_context/cart";
-import Image from "next/image";
-import { useContext, useState } from "react";
+import { Button } from "@/app/_components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from "@/app/_components/ui/sheet";
+import { CartContext } from "@/app/_context/cart";
+import {
+  formatCurrency,
+  calculateProductTotalPrice,
+} from "@/app/_helpers/price";
+import { Prisma } from "@prisma/client";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import Image from "next/image";
+import { useContext, useState } from "react";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
@@ -57,6 +56,11 @@ const ProductDetails = ({
   const { addProductToCart, products } = useContext(CartContext);
 
   const addToCart = ({ emptyCart }: { emptyCart?: boolean }) => {
+    addProductToCart({ product, quantity, emptyCart });
+    setIsCartOpen(true);
+  };
+
+  const handleAddToCartClick = () => {
     // VERIFICAR SE HÁ ALGUM PRODUTO DE OUTRO RESTAURANTE NO CARRINHO
     const hasDifferentRestaurantProduct = products.some(
       (cartProduct) => cartProduct.restaurantId !== product.restaurantId,
@@ -70,11 +74,6 @@ const ProductDetails = ({
     addToCart({
       emptyCart: false,
     });
-  };
-
-  const handleAddToCartClick = () => {
-    addProductToCart(product, quantity);
-    setIsCartOpen(true);
   };
 
   const handleIncreaseQuantityClick = () =>
@@ -174,6 +173,7 @@ const ProductDetails = ({
           <SheetHeader>
             <SheetTitle className="text-left">Sacola</SheetTitle>
           </SheetHeader>
+
           <Cart setIsOpen={setIsCartOpen} />
         </SheetContent>
       </Sheet>
