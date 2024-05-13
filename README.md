@@ -4,6 +4,8 @@
 [POSTGRESQL_BADGE]: https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
 [TAILWINDCSS_BADGE]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
 [PRISMA_BADGE]: https://img.shields.io/badge/prisma-%231B222D.svg?style=for-the-badge&logo=prisma&logoColor=white
+[Node.js Badge]: https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white
+
 
 
 <h1 align="center" style="font-weight: bold;">FSW Food 🍔</h1>
